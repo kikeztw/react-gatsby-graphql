@@ -1,0 +1,19 @@
+.todo-card{
+  margin-top: 10px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  transition: transform .1s ease-in;
+}
+
+.todo-card:hover{
+  transform: scale(1.05);
+}
+
+.todo-card > div{
+  padding-left: 8px;
+  padding-right: 8px;
+}

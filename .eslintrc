@@ -1,0 +1,11 @@
+{
+  "extends": "airbnb",
+  "settings": {
+    "import/resolver": {
+      "alias": [
+        ["~modules", "./src/modules"],
+        ["~queries", "./src/queries"]
+      ]
+    }
+  }
+}

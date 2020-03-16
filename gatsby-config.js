@@ -5,37 +5,33 @@
  */
 
 module.exports = {
-  siteMetadata: {
-    title: "Gatsby Tutorial",
-    description:"React, GraphQL and Gatsby",
-    author: "Carlos Hurtado"
-  },
   plugins: [
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sass",
-    "gatsby-transformer-remark",
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-plugin-apollo',
       options: {
-        name: "src",
-        path: `${__dirname}/src/`,
+        uri: 'https://api-uswest.graphcms.com/v1/ck7r0uthr05u401ek1etyd7ps/master',
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-alias-imports',
       options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 750,
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
+        aliases: {
+          '~modules': 'src/modules',
+          '~queries': 'src/queries',
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
       },
     },
   ],
-}
+};

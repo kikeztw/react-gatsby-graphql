@@ -1,0 +1,101 @@
+.dashboard_layout{
+  background: transparent !important;
+  flex: 1;
+}
+
+.dashboard_background{
+  background-color: transparent !important;
+}
+
+.dashboard_header{
+  background: #fff !important;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+}
+
+.team_container{
+  padding: 1em;
+}
+
+.workspace_header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px !important;
+}
+
+.workspace_header .header_title{
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+}
+
+.workspace_header .avatar_name{
+  margin-right: 8px;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  color: #000;
+  font-size: 16px;
+}
+
+.todos_container{
+  padding-top: 5.5em;
+}
+
+.todos_footer{
+  padding-top: 1.5em;
+}
+.todo_body{
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.team_picker_container{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 14px;
+  margin-bottom: 16px;
+}
+
+.team_picker_icon_plus{
+  border-radius: 50%;
+  background: #f0f0f0;
+  height: 2.5em;
+  width: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 8px 0;
+}
+
+.team_picker_icon_plus > span{
+  position: relative;
+  left: .7px;
+}
+
+.team_picker_item{
+  padding: 1em 1.2em !important;
+}
+
+.team_picker_item_text{
+  font-size: 14px;
+  padding: 0 .5em;
+  color: #000;
+}
+
+.team_picker_on_select_container{
+  display: flex;
+  align-items: center;
+  margin: 0 .5em !important;
+  padding: 0 !important;
+}
+
+.team_picker_on_select_item{
+  padding: 0 .1em;
+  list-style: none;
+}

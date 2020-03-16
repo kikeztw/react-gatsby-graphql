@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Typography, Avatar,  Menu, Dropdown } from 'antd';
 import styles from '../css/index.module.css';
 import { navigate } from 'gatsby';
@@ -26,7 +26,15 @@ const menu = (
 );
 
 export default memo(() => {
-  const data = JSON.parse(localStorage.getItem('user'));
+  const [data, setData] = useState({});
+  useEffect(() => {
+    if(localStorage.getItem('user')){
+      setData(JSON.parse(localStorage.getItem('user')))
+    }
+  }, [])
+
+  if(!Object.values(data).length) return null;
+
   return (
       <div className={styles.workspace_header}>
         <Text className={styles.header_title}>WorkSpace</Text>

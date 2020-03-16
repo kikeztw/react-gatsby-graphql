@@ -28,9 +28,12 @@ const menu = (
 export default memo(() => {
   const [data, setData] = useState({});
   useEffect(() => {
-    if(localStorage.getItem('user')){
-      setData(JSON.parse(localStorage.getItem('user')))
+    const getData = () => {
+      if(localStorage.getItem('user')){
+        setData(JSON.parse(localStorage.getItem('user')))
+      }
     }
+    getData();
   }, [])
 
   if(!Object.values(data).length) return null;

@@ -1,5 +1,6 @@
-import React from 'react';
-import { Layout, Divider } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Layout, Divider, Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 import { Redirect } from '@reach/router';
 import { Layout as AppLayout } from '~modules';
 import WorkSpaceTeam from './components/WorkSpaceTeam';
@@ -10,9 +11,40 @@ import CreateTodo from './components/CreateTodo';
 import styles from './css/index.module.css';
 
 const { Content, Header, Sider } = Layout;
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
 
 export default () => {
-  if (!localStorage.getItem('user')) {
+  const [loading, setLoading] = useState(true);
+  const [isUserLogin, setIsUserLogin] = useState(false);
+
+  useEffect(() => {
+    const checkUser = () => {
+      if (localStorage) {
+        setIsUserLogin(!localStorage.getItem('user'));
+        setLoading(false);
+      }
+    };
+    checkUser();
+  }, []);
+
+  if (loading && !isUserLogin) {
+    return (
+      <Spin
+        style={{
+          display: 'flex',
+          height: '100vh',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}
+        indicator={antIcon}
+        tip="loading"
+      />
+    );
+  }
+
+  if (isUserLogin && !loading) {
     return <Redirect to="/" />;
   }
 
